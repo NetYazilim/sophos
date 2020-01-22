@@ -1,0 +1,227 @@
+\.testClass{
+	/* background:black; */	
+}
+
+.companyRights {
+	font-size: 9pt;
+}
+document{
+	/*font-family: fantasy;*/
+}
+/*Class for right side page, which displays all the keys*/
+.descriptionOperation {
+	font-weight: bold;
+	/*font-family: fantasy;*/
+}
+.descriptionDescription {
+	font-weight: bold;
+}
+.keyDescription {
+	font-weight: bold;
+	font-size: 13px;
+}
+
+
+
+/*Class for Left side menu*/
+.menuPage {
+	font-weight: bold;
+	/*font-family: fantasy;*/
+	font-size: 12px;
+	cursor: pointer;
+	padding: 4px 0px;
+	background:#152F3C;
+}
+.menuPage,.entityCSSLast a,.entityCSSLast li{
+	color:#fff;
+}
+.menuPage>ul {
+	list-style-type: none;
+	
+	/* background: url('resources/apiIcon.ico') no-repeat top left; */
+}
+a {
+color: #000;
+text-decoration: none;
+}
+
+.operationList{
+	/*font-family: fantasy;*/
+	font-size: 14px;	
+}
+.operationListlia{
+	text-decoration: none;
+	color: #000;
+}
+
+/*Class for Right side key list */
+.contentPageEntityName {
+	/* background:gray; */
+	/*font-family: fantasy;*/
+	font-weight: bold;
+	margin-bottom: 6px;
+}
+
+.operationCSS{
+	font-size: 12px;
+	/*background:#EDEDED;*/
+}
+
+.operationCSS>ul {
+	/*list-style:square;*/
+	margin: 0px;
+	padding: 0px;
+	padding-left:10px;
+	cursor: pointer;
+}
+
+.operationCSSChild{
+	font-size: 12px;
+	/*background:#FAFAFA;*/
+}
+
+.operationCSSChild>ul {
+	/*list-style:square;*/
+	margin: 0px;
+	padding: 0px;
+	padding-left:10px;
+	cursor: pointer;
+}
+
+.entityCSS{
+	font-size: 12px;
+	font-weight: bold;
+	border-style:solid;
+	border-left-style: none;
+	border-right-style: none;
+	border-top: 0px solid white;
+	border-bottom-style:none;
+	padding-top:4px;
+	/*border-bottom: 1px solid white;*/
+}
+.entityCSSFirst{
+	border-top: 0px solid white;
+
+}
+.entityCSSLast{
+	/*border-bottom: 1px solid white;*/
+	
+	font-size: 12px;
+	font-weight: bold;
+	/* border-style:solid; */
+	border-left-style: none;
+	border-right-style: none;
+	padding-top:4px;
+	background:#152F3C;
+}
+
+.entityCSSLastChild{
+	border-top: 1px solid white;
+}
+
+.anchorStyle{
+	text-decoration: none;
+	font-weight: normal;
+}
+
+.entityCSS>ul{
+	/* list-style:circle; */
+	margin: 0px;
+	padding: 0px;
+	padding-left:0px;
+	cursor: pointer;
+	/*padding-bottom: 3px;*/
+	text-decoration: none;
+}
+
+.tableHeader {
+	height:25px;
+	background-color: #E2E2E2;
+	border-bottom: 1px solid #CCC;
+	color:#666;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.oddRow {
+	padding:10px;
+	font-size: 13px;
+}
+
+.statusTable {
+	color:black;
+	width:100%;
+	border-radius:5px;
+	border-spacing:1px;
+	background:#CCC;
+}
+.statusTable td,.xmpTable td{
+	background:#FFF;
+	padding:1px;
+}
+.xmpTable{
+	border-spacing:1px;
+	color:#666;
+	width:100%;
+	/*border-color: black;*/
+	background:#CCC;
+	border-radius:5px;
+	font-family: trebuchet ms;
+}
+.logTable {
+	text-align: left;
+}
+
+.openFolder{
+	list-style-type: none;
+	background: url('openFolder.png') no-repeat top -4px left;
+	height: 19px;
+	padding-left: 22px;
+}
+
+.closeFolder{
+	list-style-type: none;
+	background: url('closeFolder.png') no-repeat top -4px left;
+	height: 19px;
+	padding-left: 22px;
+}
+
+.childItemOnlyOneLI{
+	border-bottom: none;
+	/*border-top: 1px solid white;*/
+	padding-bottom:4px;
+	padding-top:4px;
+}
+
+.childItemsLI{
+	/*border-style:solid;*/
+	border-color:black;
+	border-left-style: none;
+	border-right-style: none;
+	/*border-bottom: 1px solid white;*/
+	/*border-top: 1px solid white;*/
+	border-top-style: none;
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.childItemsLIFirst{
+	/*border-style:solid;*/
+	border-left-style: none;
+	border-right-style: none;
+	/*border-top: 1px solid white;
+	border-bottom: 1px solid white;*/
+	padding-top:4px;
+	padding-bottom:4px;
+}
+
+.childItemsLILastChild{
+	/*border-top: 1px solid white;*/
+	/*border-bottom: 1px solid white;*/
+	padding-top:4px;
+	padding-bottom:4px;
+}
+.childItemsLILast{
+	padding-top:4px;
+	padding-bottom:4px;
+	/*border-bottom: 1px solid white;*/
+}

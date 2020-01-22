@@ -1,0 +1,96 @@
+<html>
+	<head>
+	<script type="text/javascript">
+		var globalJSON;
+		function loadData(){
+		
+			var xmlhttp;
+			if (window.XMLHttpRequest)
+			{// code for IE7+, Firefox, Chrome, Opera, Safari
+				xmlhttp=new XMLHttpRequest();
+			}
+			else
+			{// code for IE6, IE5
+				xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			xmlhttp.onreadystatechange=function()
+			{
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			  {
+			  	//alert("Data Saved...! !"+xmlhttp.responseText);
+				/*var json = {
+					"idxAddressEmail":{"RegEx":"0","Desc":"ABC"},
+					"idxRejectDefault":{"RegEx":"0","Desc":"PQR"},
+				};*/
+				var json = xmlhttp.responseText;
+				globalJSON=JSON.parse(json);
+				//data=JSON.stringify(json);
+				var data = JSON.parse(json);
+				//var data = JSON.stringify(eval("(" + json + ")"));
+				//alert("Data = "+ data);
+				var controls="<div id='allControls' width='100%' align='center'> <b>: Regular Expression Description : </b><br><br>	<table width='20%'>";
+				for(var i in data){
+					//alert("key = " + i);
+					controls = controls + "<tr>	<td style='vertical-align:top;'> " + i + ":</td> <td> <textarea cols='30' rows='2' id='" + i +"'>" + data[i].Desc + "</textarea><td style='vertical-align:top;'>" + data[i].RegEx + "</td></tr>";
+					for (var j in data[i]){
+						//alert(j + "=" + data[i][j]);	
+					}
+				}
+				controls = controls + "<tr>	<td colspan='2' align='center'> <input type='submit' id='btnSave' onclick='sendData();' value='Save'> </td>	</tr>";
+				controls = controls + "</table>";
+				document.getElementById("allControls").innerHTML = controls;
+				//alert(controls);
+			  }
+			};
+			xmlhttp.open("GET","http://10.202.2.85:8080/prjHelpDoc/CyberoamXMLServlet",true);
+			
+			xmlhttp.send();
+		
+			
+		}
+		function sendData(){
+			alert("sendData() called...");
+			var data = globalJSON;
+			var jsonToSend="?jsonForRegex=";			
+			
+			jsonToSend = jsonToSend + "{"
+			for(var i in data){
+				jsonToSend = jsonToSend + i + ":\""+ document.getElementById(i).value +"\",";
+			}
+			jsonToSend = jsonToSend.substring(0, jsonToSend.length - 1);
+			jsonToSend = jsonToSend + "}";			
+			
+			alert("Data = " + data);
+			var xmlhttp;
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+			    {
+			    	alert("Data Saved...! !");
+			    }
+			};
+			//xmlhttp.open("GET","",false);
+			xmlhttp.open("POST","http://10.202.2.85:8080/prjHelpDoc/CyberoamXMLServlet"+jsonToSend,true);
+			xmlhttp.send();
+			var serverResponse = xmlhttp.responseText;
+			alert(serverResponse);
+			//var json = JSON.stringify(eval("(" + serverResponse + ")"));
+			//var json = JSON.parse(serverResponse);
+			//alert("json=" + json.Entity);
+		}
+	</script>
+	</head>
+	<body onload="loadData();">
+	<div id="allControls" width="100%" align="center">
+	
+	</div>
+	</body>
+</html>

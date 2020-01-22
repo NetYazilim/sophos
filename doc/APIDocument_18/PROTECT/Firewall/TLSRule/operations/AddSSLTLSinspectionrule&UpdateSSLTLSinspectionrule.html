@@ -1,0 +1,79 @@
+<HTML><head> <script language='javascript' src='../../../../common.js'></script><link rel='stylesheet' type='text/css' href='../../../../helpDoc.css'/></script> <script language='javascript' src='../../../../functions.js'></script><link rel="stylesheet" href="../../../../UIResources/themes/base/jquery.ui.all.css"/><script src="../../../../UIResources/jquery-1.9.1.js"></script><link rel="stylesheet" href="../../../../UIResources/demos.css"/></head> <body><table> <tr> <td width='10%'> <lable id='lblOperation' class='descriptionOperation'> Operation:</lable> </td> <td width='81%'> Add SSL TLS inspection rule / Update SSL TLS inspection rule</td></tr><tr> <td style='vertical-align:top;'><lable id='lblDescription' class='descriptionDescription'> Description:</lable> </td> <td>Add an SSL TLS inspection rule.Update an SSL TLS inspection rule.&nbsp;</td> </tr></table><table><tr><td><br /></td></tr></table><table style='table-layout:fixed;' border='0' class='xmpTable'> <tr class='tableHeader'> <th>Sample Configuration</th></tr><tr><td ><font size="3"><table style="cell-spacing:0px;cell-padding:0px;margin-left:7px;box-shadow: -7px 0 0 #ADAAAA;"><tr><td><div style='overflow:auto;'><xmp style="white-space: pre-wrap;font-size:13px;font-family:trebuchet ms;">	<SSLTLSInspectionRule>
+		<Name>Name</Name>
+		<NewName>Edited Name</NewName>
+		<IsDefault>yes/no</IsDefault>
+		<Description>Description</Description>
+		<Enable>Yes/No</Enable>
+        
+		<!-- Position is optional in ADD operations. If it is not supplied the default Bottom is applied
+		     It is not required in UPDATE or APIImport -->
+		<Position>Top/Bottom</Position>
+        
+		<LogConnections>Enable/Disable</LogConnections>
+		<DecryptAction>Do not decrypt/Decrypt/Deny</DecryptAction>
+		<DecryptionProfile>Decryption Profile</DecryptionProfile>
+		<SourceZones>
+			<Zone>Zone</Zone>
+				:
+		</SourceZones>
+		<SourceNetworks>
+			<Network>Source Network</Network>
+				:
+		</SourceNetworks>
+		<DestinationZones>
+			<Zone>Zone</Zone>
+				:
+		</DestinationZones>
+		<DestinationNetworks>
+			<Network>Destination Network</Network>
+				:
+		</DestinationNetworks>
+		<Identity>
+			<Members>Users/Groups</Members>
+				:
+		</Identity>
+		<Services>
+			<Service>Service</Service>
+				:
+		</Services>
+		<Websites>
+			<Activity>
+				<Name>Name</Name>
+				<Type>Web Category/URL Group</Type>
+			</Activity>
+				:
+		</Websites>
+		
+		<!-- MoveTo is optional, for ADD it is applied after Position -->
+		<MoveTo>
+			<Name>Name of reference position</Name>
+			<OrderBy>Before/After</OrderBy>
+		</MoveTo>
+        
+		<SynchronizedSecurity>
+        
+		<SyncFilters>
+        
+			<SyncFilter>
+				<RiskList>
+					<Risk>Risk or SelectALL</Risk>
+				   :
+				</RiskList>
+				<CategoryList>
+					<Category>Category or SelectALL</Category>
+					:
+				</CategoryList>
+				<SmartFilter>Smart search text separated by ||</SmartFilter>
+			</SyncFilter>
+		   :
+		</SyncFilters>
+
+		<Applications>
+			<Application>Synchronized Application</Application>
+			:
+		</Applications>
+
+		</SynchronizedSecurity>
+
+	</SSLTLSInspectionRule>
+</xmp></div></font></td></tr> </table></td></tr> </table><br /><b><label style='font-size: 13px;'> Attribute/Parameter Information :  </label></b> <br> <br><table border='0' class='statusTable'> <tr class='tableHeader'> <th>Parameter</th> <th>Mandatory</th> <th>Default</th> <th>Description</th> </tr><tr><td width='25%' style='padding:10px;'>Application</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the Synchronized Security application(s) to which rule is to be applied.<br></td></tr><tr><td width='25%' style='padding:10px;'>DecryptAction</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the action to use for traffic matching the rule.<br><b>DecryptAction confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Only 'Decrypt', 'Do not decrypt', 'Deny' are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>Description</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify rule description.<br><b>Description confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Datatype is 'STRING'.</li><li>Maximum characters allowed are 255.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>OrderBy</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specifies whether to move above or below.<br><b>OrderBy confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Only 'Before', 'After' are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>Service</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the service(s) to which rule is to be applied.<br></td></tr><tr><td width='25%' style='padding:10px;'>IsDefault</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>no&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Read-only field specifying if it's a default SSL/TLS inspection rule.<br></td></tr><tr><td width='25%' style='padding:10px;'>Network</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the destination network(s) to which rule is to be applied.<br></td></tr><tr><td width='25%' style='padding:10px;'>Zone</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the destination zone(s) to which rule is to be applied.<br></td></tr><tr><td width='25%' style='padding:10px;'>LogConnections</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify 'Enable' to log connections to the SSL log.<br><b>LogConnections confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Only 'Enable', 'Disable', 't', 'f' are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>DecryptionProfile</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the name of the associated decryption profile.<br></td></tr><tr><td width='25%' style='padding:10px;'>Enable</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify whether rule is enabled.<br><b>Enable confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Only 'Yes', 'No', 't', 'f' are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>Members</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the source users/groups to which rule is to be applied.<br></td></tr><tr><td width='25%' style='padding:10px;'>Name</td><td width='10%' style='padding:10px;'>Yes&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify rule name.<br><b>Name confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Datatype is 'STRING'.</li><li>Character not allowed: Comma (,)</li><li>Maximum characters allowed are 60.</li><li>UTF-8 character(s) are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>Position</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify 'Top' to have this rule placed at the top of the list, and 'Bottom' to have it appear at the bottom.<br><b>Position confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Only 'Top', 'Bottom' are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>Websites</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the category/websites to which rule is to be applied.<br><b>Websites confines to:</b><ul style='margin:0;'><li>Type is 'ARRAY'.</li><li>Datatype is 'OBJECT'.</li><li>webfilter::websites</li><li>Multiple values are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>Zone</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the source zone(s) to which rule is to be applied.<br></td></tr><tr><td width='25%' style='padding:10px;'>Name</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Reference position for rule move<br><b>Name confines to:</b><ul style='margin:0;'><li>Type is 'SCALAR'.</li><li>Datatype is 'STRING'.</li><li>Character not allowed: Comma (,)</li><li>Maximum characters allowed are 60.</li><li>UTF-8 character(s) are allowed.</li></ul></td></tr><tr><td width='25%' style='padding:10px;'>Network</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the source network(s) to which rule is to be applied.<br></td></tr><tr><td width='25%' style='padding:10px;'>SyncFilters</td><td width='10%' style='padding:10px;'>No&nbsp;</td><td width='10%' style='padding:10px;'>&nbsp;</td><td style='padding:10px;'><label class='keyDescription'>Description: </label> <br>Specify the Synchronized Security filters to be applied.<br><b>SyncFilters confines to:</b><ul style='margin:0;'><li>Type is 'ARRAY'.</li><li>Datatype is 'OBJECT'.</li><li>webfilter::syncfilters</li><li>Multiple values are allowed.</li></ul></td></tr> </table><br> <b><label style='font-size: 13px;'> Status Message Information :  </label></b> <br> <br> <table border='0' class='statusTable'> <tr class='tableHeader'> <th> Operation </th> <th> &nbsp;&nbsp;Status&nbsp;&nbsp; </th> <th>Message</th> </tr><tr><td width='25%' class='oddRow'>Add SSL TLS inspection rule</td><td class='oddRow'>200</td><td class='oddRow'><script> var txtCommName="abc";myreplace="";var v1=replaceFieldFromText(Message.TlsRuleAddSuccess); document.write(v1);</script></tr><tr><td width='25%' class='oddRow'>Add SSL TLS inspection rule</td><td class='oddRow'>500</td><td class='oddRow'><script> var txtCommName="abc";myreplace="";var v1=replaceFieldFromText(Message.TlsRuleAddFailed); document.write(v1);</script></tr><tr><td width='25%' class='oddRow'>Add SSL TLS inspection rule</td><td class='oddRow'>502</td><td class='oddRow'><script> var txtCommName="abc";myreplace="";var v1=replaceFieldFromText(Message.TlsRuleRecordExists); document.write(v1);</script></tr><tr><td width='25%' class='oddRow'>Add SSL TLS inspection rule</td><td class='oddRow'>522</td><td class='oddRow'><script> var txtCommName="abc";myreplace="";var v1=replaceFieldFromText(Message.TlsRulesLimit); document.write(v1);</script></tr><tr><td width='25%' class='oddRow'>Update SSL TLS inspection rule</td><td class='oddRow'>200</td><td class='oddRow'><script> var txtCommName="abc";myreplace="";var v1=replaceFieldFromText(Message.TlsRuleUpdateSuccess); document.write(v1);</script></tr><tr><td width='25%' class='oddRow'>Update SSL TLS inspection rule</td><td class='oddRow'>500</td><td class='oddRow'><script> var txtCommName="abc";myreplace="";var v1=replaceFieldFromText(Message.TlsRuleUpdateFailed); document.write(v1);</script></tr></table></br ><hr style="float:left;background-color:#000000;width:100%"><div class='companyRights'>&copy; Copyright 2019 Sophos Firewall Limited. All rights reserved.</div><div class='companyRights'>Sophos Firewall is registered trademarks of Sophos Firewall Limited and Sophos Firewall Group. All other product and company names mentioned are trademarks or registered trademarks of their respective owners.</br>No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, photocopying, recording or otherwise unless you are either a valid licensee where the documentation can be reproduced in accordance with the license terms or you otherwise have the prior permission in writing of the copyright owner.</div></body></HTML>

@@ -1,0 +1,478 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<HTML>
+ <HEAD>
+  <TITLE> API Documentation </TITLE>
+  <link rel='stylesheet' type='text/css' href='helpDoc.css'/></script>
+  <link rel="stylesheet" href="UIResources/themes/base/jquery.ui.all.css"/>
+  <script src="UIResources/jquery-1.9.1.js"></script>
+  <script language='javascript' src='OEM.js'></script>
+  <link rel="stylesheet" href="UIResources/demos.css"/>
+ </HEAD>
+<script>
+window.onload = function(e){
+	var items = document.getElementsByClassName("productName");
+	for (i = 0, len = items.length; i < len; i++) {
+		items[i].innerHTML = OEMProperty.ProductName;
+	}
+}
+</script>
+	<div style="font-size: 13.5px;">
+		</br>
+		This page contains the information on the XML tags and the status codes used in the API. XML tags are used for applying the configurations on the appliance. When XML response is received, it contains a status code with the description about the success/failure of the operation.
+		</br>
+		</br>
+		Please find below the list of XML tags and the status code with their descriptions:
+	</div>
+	</br>
+	<table class="statusTable" border="0">
+		<tbody>
+		<tr class="tableHeader"><th>List of tags used in API</th></tr>
+		<tr>
+			<td width="25%" style="padding:10px;">
+				<ol>
+					<li style='font-weight: bold;'>Tag Name: &lt;Request&gt;</li>
+					<div><b>Description:</b> It is used for sending XML Request. To apply any configuration this tag is necessary. API Version also needs to be specified for configurations to be applied successfully.</br>
+					
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+							Attribute – APIVersion</br>
+							Attribute Value – Version of API used. For example: “1702.1”
+					</div>
+					<b>Example:</b></br>
+					
+					<div style='margin-left:8px; padding-left:4px; background-color:#E8E8E8;box-shadow: -7px 0 0 #ADAAAA;'>
+					&lt;Request APIVersion=”1702.1”&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;Login&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Username&gt;admin&lt;/Username&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Password passwordform="encrypt"&gt;8b1e6eb1b182b1806390ffefc99753fc&lt;/Password&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Login&gt;</br>
+					&lt;/Request&gt;</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Login&gt;</li>
+					<div><b>Description:</b> It is used for Authentication.</br>
+					
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+							Attribute – N/A</br>
+							Attribute Value – N/A
+					</div>
+					<b>Example:</b></br>					
+					<div style='padding-left:20px;'>
+					Please refer the above example.</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Username&gt;</li>
+					<div><b>Description:</b> Specify the username in this tag.</br>
+					
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+							Attribute – N/A</br>
+							Attribute Value – N/A
+					</div>
+					<b>Example:</b></br>					
+					<div style='padding-left:20px;'>
+					Please refer the above example.</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Password passwordform="encrypt"&gt;</li>
+					<div><b>Description:</b> Specify the encrypted password in this tag.</br>
+					
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+							Attribute – N/A</br>
+							Attribute Value – N/A
+					</div>
+					<b>Example:</b></br>					
+					<div style='padding-left:20px;'>
+					Please refer the above example.</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Set&gt;</li>
+					<div><b>Description:</b> It is used to inform that the request is to be served as Add/Update depending on the Attribute value.</br>
+					Note: If, no “operation” attribute/value is defined in the tag, then Add operation will be performed followed by Update</br>
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+							Attribute – operation</br>
+							Attribute Value – Add/Update
+					</div>
+					<b>Example:</b></br>					
+					<div style='margin-left:8px; padding-left:4px; background-color:#E8E8E8;box-shadow: -7px 0 0 #ADAAAA;'>
+					&lt;Request&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;Login&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Username&gt;admin&lt;/Username&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Password passwordform="encrypt"&gt;8b1e6eb1b182b1806390ffefc99753fc&lt;/Password&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Login&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;Set operation="add"&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPHost&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Name&gt;CustomIPHostTypeIPV4&lt;/Name&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPFamily&gt;IPv4&lt;/IPFamily&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;HostType&gt;IP&lt;/HostType&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPAddress&gt;1.1.1.1&lt;/IPAddress&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/IPHost&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Set&gt;</br>
+					&lt;/Request&gt;</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Get&gt;</li>
+					<div><b>Description:</b> It is used to inform that the request needs to be served for retrieving data of the entity specified.</br>
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+						Attribute – N/A</br>
+						Attribute Value – N/A
+					</div>
+					<b>Example:</b></br>					
+					<div style='margin-left:8px; padding-left:4px; background-color:#E8E8E8;box-shadow: -7px 0 0 #ADAAAA;'>
+					&lt;Request&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;Login&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Username&gt;admin&lt;/Username&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Password passwordform="encrypt"&gt;8b1e6eb1b182b1806390ffefc99753fc&lt;/Password&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Login&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;Get&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPHost&gt;&lt;/IPHost&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Get&gt;</br>
+					&lt;/Request&gt;</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Filter&gt;</li>
+					<div><b>Description:</b> It is used for retrieving entity data based on the criteria specified in the &lt;Key&gt; tag. It is only applicable for entity ‘Name’</br>
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+						Attribute – N/A</br>
+						Attribute Value – N/A
+					</div>
+					<b>Example:</b></br>					
+					<div style='margin-left:8px; padding-left:4px; background-color:#E8E8E8;box-shadow: -7px 0 0 #ADAAAA;'>
+					&lt;Request&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;Login&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Username&gt;admin&lt;/Username&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Password passwordform="encrypt"&gt;8b1e6eb1b182b1806390ffefc99753fc&lt;/Password&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Login&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;Get&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPHost&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Filter&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;key name="Name" criteria="like"&gt;CustomIPHostTypeIPV4&lt;/key&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Filter&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/IPHost&gt;</br>
+					&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Get&gt;</br>
+					&lt;/Request&gt;
+					</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Key&gt;</li>
+					<div><b>Description:</b> It is used within the &lt;Filter&gt; tag to specify the filter key and Filter criteria.</br>
+					<b>Usage:</b></br>
+					<div style='padding-left:20px;'>
+						Attribute – name, criteria</br>
+						Attribute Value – name = “Name”, criteria = [“=”,”!=”,”like”]
+					</div>
+					<b>Example:</b></br>					
+					<div style='padding-left:20px;'>
+					Please refer the above example.
+					</br>
+					</div>
+					</div>
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Remove&gt;</li>
+					<div><b>Description:</b> It is used to delete data.</br>
+						<b>Usage:</b></br>
+						<div style='padding-left:20px;'>
+							Attribute – N/A</br>
+							Attribute Value – N/A
+						</div>
+						<b>Example:</b></br>					
+						<div style='margin-left:8px; padding-left:4px; background-color:#E8E8E8;box-shadow: -7px 0 0 #ADAAAA;'>
+							&lt;Request&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Login&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Username&gt;admin&lt;/Username&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Password passwordform="encrypt"&gt;8b1e6eb1b182b1806390ffefc99753fc&lt;/Password&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Login&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Remove&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPHost&gt; </br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Name&gt;CustomIPHostTypeIPV4&lt;/Name&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;/IPHost&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Remove&gt;</br>
+							&lt;/Request&gt;
+							</br>
+						</div>
+					</div>
+					</br>
+					
+					
+					<li style='font-weight: bold;'>Tag Name: &lt;Response&gt;</li>
+					<div><b>Description:</b> Response of any request will be displayed in this tag.</br>
+						<b>Usage:</b></br>
+						<div style='padding-left:20px;'>
+							Attribute – APIVersion</br>
+							Attribute Value – Same value as specified in the XML Request or if it is not specified then active firmware API Version will be considered.
+						</div>
+						<b>Example:</b></br>					
+						<div style='margin-left:8px; padding-left:4px; background-color:#E8E8E8;box-shadow: -7px 0 0 #ADAAAA;'>
+							&lt;Response APIVersion="1702.1"&gt; </br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Login&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;status&gt;Authetication Successful&lt;/status&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Login&gt; </br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPHost transactionid=""&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Status code="502"&gt;Message.IPHostRecordExists&lt;/Status&gt; </br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/IPHost&gt;</br>
+							&lt;/Response&gt;
+							</br>
+						</div>
+					</div>
+					
+					</br>
+					<li style='font-weight: bold;'>Tag Name: &lt;Status&gt;</li>
+					<div><b>Description:</b> It is a part of the &lt;Response&gt; tag and it indicates the configuration status based on the code.</br>
+						<b>Usage:</b></br>
+						<div style='padding-left:20px;'>
+							Attribute – code</br>
+							Attribute Value – code value.
+						</div>
+						<b>Example:</b></br>					
+						<div style='margin-left:8px; padding-left:4px; background-color:#E8E8E8;box-shadow: -7px 0 0 #ADAAAA;'>
+							&lt;Response APIVersion="1702.1"&gt; </br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;Login&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;status&gt;Authetication Successful&lt;/status&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/Login&gt; </br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;IPHost transactionid=""&gt;</br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;Status code="502"&gt;Operation failed. Entity having same name already exists&lt;/Status&gt; </br>
+							&nbsp;&nbsp;&nbsp;&nbsp;&lt;/IPHost&gt;</br>
+							&lt;/Response&gt;
+						</div>
+					</div>
+				</ol>
+			</td>
+		</tr>		
+		</tbody>
+	</table>
+	
+	<!-- Second table for Status code-->
+	</br>
+	<table class="statusTable" border="1">
+		<tbody>
+		<tr class="tableHeader"><th>How to use API ?</th></tr>
+		<tr>
+			<td width="25%" style="padding:10px;">
+				
+					
+					<div>Please use the below link to use API:</br>
+					<b>https://&lt;Firewall IP&gt;:&lt;port&gt;/webconsole/APIController?reqxml=&lt;Add the XML request here&gt;</b></br>
+					Note: Port you mention in above URL should be same as the port you have configured as Admin Console HTTPS Port from System > Administration > Settings.</br>
+					Example:</br>
+					<ol>
+						<li style='font-weight: bold;'>Set Request</li>
+						<div>
+						https://&lt;Firewall IP&gt;:&lt;port&gt;/webconsole/APIController?reqxml=&lt;Request&gt;&lt;Login&gt;&lt;Username&gtadmin&lt;/Username&gt;&lt;Password passwordform="encrypt"&gt;8b1e6eb1b182b1806390ffefc99753fc&lt;/Password&gt;&lt;/Login&gt;&lt;Set&gt; &lt;IPHost transactionid=""&gt;&lt;Name&gt;ip2&lt;/Name&gt;&lt;IPFamily&gt;IPv4&lt;/IPFamily&gt;&lt;HostType&gt;IP&lt;/HostType&gt;&lt;IPAddress&gt;2.2.2.9&lt;/IPAddress&gt;&lt;/IPHost&gt; &lt;/Set&gt;&lt;/Request&gt;
+						</div>
+						</br>
+						<li style='font-weight: bold;'>Get Request</li>
+						<div>
+						https://&lt;Firewall IP&gt;:&lt;port&gt;/webconsole/APIController?reqxml=&lt;Request&gt;&lt;Login&gt;&lt;Username&gt;admin&lt;/Username&gt;&lt;Password passwordform="encrypt"&gt;8b1e6eb1b182b1806390ffefc99753fc&lt;/Password&gt;&lt;/Login&gt;&lt;Get&gt; &lt;IPHost&gt;&lt;/IPHost&gt; &lt;/Get&gt;&lt;/Request&gt;
+						</div>
+					</ol>
+					</div>
+			</td>
+		</tr>		
+		</tbody>
+	</table>
+	
+	
+	<!-- Third table for Status code-->
+	
+	</br>
+	<table class="statusTable" border="1">
+		<tbody>
+		<tr class="tableHeader"><th>Status Code and Description</th></tr>
+		<tr>
+			<td width="25%" style="padding:10px;">
+				<table width="100%" style='font-size: 13px;border-style:thin;border-collapse: collapse;' cellpadding="4">					
+					<tr style="border-bottom:1pt solid black;">
+						<td width="10%">
+							<b>Status</b>
+						</td>
+						<td>
+							<b>Message</b>
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							200
+						</td>
+						<td>
+							Configuration applied successfully.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							201
+						</td>
+						<td>
+							Operation partially successful.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							203
+						</td>
+						<td>
+							Operation successful but few configurations could not be applied. Please contact Support.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							204 - 210
+						</td>
+						<td>
+							Operation partially failed.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							211 - 215
+						</td>
+						<td>
+							Warning messages will be displayed. For more information, refer to the section “Status Message Information” on each page.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							216
+						</td>
+						<td>
+							Operation Successful. For more information, refer to the section “Status Message Information” on each page.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							500
+						</td>
+						<td>
+							Operation could not be performed on Entity.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							501
+						</td>
+						<td>
+							Configuration parameters validation failed.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							502
+						</td>
+						<td>
+							Operation failed. Entity having same name already exists.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							503
+						</td>
+						<td>
+							Operation failed. Entity having same parameter details already exists.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							504 - 510
+						</td>
+						<td>
+							Operation failed. Deleting entity referred by another entity.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							511 - 520
+						</td>
+						<td>
+							Operation failed. Please contact Support.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							521
+						</td>
+						<td>
+							XML Request not compatible with current API version.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							522 - 525
+						</td>
+						<td>
+							Maximum limit reached for entity.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							526
+						</td>
+						<td>
+							Record does not exist.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							528
+						</td>
+						<td>
+							Trying to update default entities which are not editable.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							529
+						</td>
+						<td>
+							Invalid XML request for entity/entities.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							530
+						</td>
+						<td>
+							API Version not supported for specific entity.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							541 - 590
+						</td>
+						<td>
+							Operation failed. For more information, refer to the section “Status Message Information” on each page.
+						</td>
+					</tr>
+					<tr>
+						<td style="vertical-align: top;text-align: left;">
+							599
+						</td>
+						<td>
+							 Not having privilege to add/modify configuration.
+						</td>
+					</tr>
+				</table>
+			</td>
+		</tr>		
+		</tbody>
+	</table>
+	
+	</br ><hr style="float:left;background-color:#000000;width:100%">
+	<div class='companyRights'>
+	
+	© Copyright 2019 <span class="productName"></span> Limited. All rights reserved.</br>
+	<span class="productName"></span> is registered trademarks of <span class="productName"></span> Limited and <span class="productName"></span> Group. All other product and company names mentioned are trademarks or registered trademarks of their respective owners.</br>
+	No part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, photocopying, recording or otherwise unless you are either a valid licensee where the documentation can be reproduced in accordance with the license terms or you otherwise have the prior permission in writing of the copyright owner.
+	
+	</div>
+</HTML>
